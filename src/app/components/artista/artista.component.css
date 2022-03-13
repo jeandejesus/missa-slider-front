@@ -1,85 +1,13 @@
-.main {
-  min-height: 86vh;
-}
-
 .font-titulo {
   margin-top: 60px;
   font-family: "Pacifico", cursive;
-}
-
-.border-color-especial {
-  border-color: black;
-}
-
-.header {
-  height: 54px;
-}
-
-.nav-open {
-  height: 100vh;
-  width: 12rem;
-}
-
-.collapsing {
-  height: 100vh !important;
-}
-.collapse:not(.show) {
-  left: -100vw;
-  transition: 0.5s;
-}
-.show {
-  left: 0;
-  transition: 0.5s;
-}
-
-.navbar-dark .navbar-toggler {
-  border: none;
-}
-
-.button-split {
-  max-width: 3rem;
-}
-
-.search-tamanho {
-  justify-content: center;
-}
-
-.bg-menu {
-  background-color: #c2c800;
-}
-
-.imagem-banner {
-  max-width: 100%;
-  padding: 10px 10px;
-}
-
-.input-search {
-  max-width: 570px;
-  max-height: 24vh;
-  border-radius: 0.8rem;
-}
-
-.fa-solid {
-  color: #6c757d;
-}
-
-footer {
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
-
-.button-split {
-  max-width: 100%;
-  padding: 0;
-  text-align: end;
 }
 
 .titulo-artista {
   font-size: 17px;
   align-self: center;
   color: #8b9111;
-  font-family: "Merriweather Sans", sans-serif;
+  font-family: "Fredoka One", cursive;
 }
 
 .main-artista {
@@ -116,6 +44,7 @@ footer {
 .lista-de-musicas {
   margin: 20px 30px;
 }
+
 @media screen and (max-width: 575px) {
   .font-navbar {
     display: none;
@@ -153,10 +82,6 @@ footer {
     font-size: 1.5em;
   }
 
-  .main {
-    padding: 0 10px;
-  }
-
   .main-artistas {
     display: flex;
     justify-content: center;
@@ -175,23 +100,19 @@ footer {
 }
 
 @media screen and (min-width: 922px) {
-  .bg-menu {
-    justify-content: space-around;
-  }
-
-  .main {
-    margin: 0 130px;
+  .lista-de-musicas {
+    margin: 20px 50px;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .bg-menu {
-    justify-content: space-around;
+  .lista-de-musicas {
+    margin: 10px 4vw;
   }
 }
 
-@media screen and (min-width: 1400) {
-  .bg-menu {
-    justify-content: space-around;
+@media screen and (min-width: 1400px) {
+  .lista-de-musicas {
+    margin: 10px 7vw;
   }
 }

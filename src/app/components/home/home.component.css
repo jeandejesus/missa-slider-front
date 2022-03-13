@@ -1,0 +1,39 @@
+.container {
+  min-height: 100vh;
+}
+.font-titulo {
+  margin-top: 14px;
+  font-family: "Fredoka One", cursive;
+}
+
+.imagem-banner {
+  max-width: 100%;
+  padding: 10px 10px;
+}
+
+.input-search {
+  max-width: 570px;
+  max-height: 24vh;
+  border-radius: 0.8rem;
+}
+
+.button-split {
+  max-width: 100%;
+  padding: 0;
+  text-align: end;
+}
+
+@media screen and (max-width: 575px) {
+}
+
+@media screen and (min-width: 576px) {
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 905px;
+  }
+}

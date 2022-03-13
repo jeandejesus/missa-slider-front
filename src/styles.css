@@ -1,7 +1,42 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Merriweather+Sans:wght@600&family=Pacifico&display=swap");
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.main {
+  min-height: 86vh;
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    margin: 0 13vh;
+  }
+}
+
+@media screen and (min-width: 922px) {
+  .main {
+    margin: 0 10vw;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .main {
+    margin: 0px 11vw;
+  }
+}
+
+@media screen and (min-width: 1400) {
+  .main {
+    margin: 0 155px;
+  }
+}
+
+@media screen and (min-width: 2560) {
+  .main {
+    margin: 0 155px;
+  }
 }

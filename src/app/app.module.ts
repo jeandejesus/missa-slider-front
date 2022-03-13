@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ArtistaComponent } from './components/artista/artista.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ArtistaComponent } from './components/artista/artista.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -12,11 +14,14 @@ import { ArtistaComponent } from './components/artista/artista.component';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ArtistaComponent
+    ArtistaComponent,
+    HomeComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

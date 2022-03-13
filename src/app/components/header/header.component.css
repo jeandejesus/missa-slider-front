@@ -1,11 +1,14 @@
 .font-navbar {
-  font-family: "Pacifico", cursive;
+  font-family: "Fredoka One", cursive;
   color: white;
   font-size: 1.6em;
   margin: 0;
   padding: 0;
 }
-
+.nav-item {
+  font-family: "Fredoka One", cursive;
+  color: rgb(118 112 112);
+}
 .header {
   height: 54px;
 }
