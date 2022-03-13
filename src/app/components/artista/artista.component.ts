@@ -3,7 +3,7 @@ import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-artista',
   templateUrl: './artista.component.html',
-  styleUrls: ['./artista.component.css']
+  styleUrls: ['./artista.component.scss']
 })
 export class ArtistaComponent implements OnInit {
 
