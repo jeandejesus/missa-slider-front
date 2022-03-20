@@ -1,0 +1,10 @@
+<ol class="list-group m-3 list-group-numbered"  >
+  <li class="list-group-item" *ngFor="let musica of musicas; let i = index">
+    <div class="row">
+      <p class="col-1">{{i + 1}}</p>
+      <p class="col-10">{{musica.nome}}</p>
+      <fa-icon class="col-1" [icon]="faCofaEllipsisVertical"></fa-icon>
+
+    </div>
+  </li>
+</ol>

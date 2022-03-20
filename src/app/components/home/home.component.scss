@@ -1,5 +1,6 @@
 .container {
   min-height: 100vh;
+  max-width: 100%;
 }
 .font-titulo {
   margin-top: 14px;
@@ -35,5 +36,11 @@
 @media screen and (min-width: 1024px) {
   .container {
     max-width: 905px;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  .container {
+    max-width: 1700px !important;
   }
 }
