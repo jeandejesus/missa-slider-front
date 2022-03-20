@@ -1,0 +1,122 @@
+.font-titulo {
+  margin-top: 60px;
+  font-family: "Pacifico", cursive;
+}
+
+.titulo-artista {
+  font-size: 17px;
+  align-self: center;
+  color: #8b9111;
+  font-family: "Fredoka One", cursive;
+}
+
+.show-none {
+  display: none;
+}
+
+.main-artista {
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 30px;
+  border-radius: 0;
+}
+.logo-artista {
+  max-width: 5em;
+  max-height: 3em;
+}
+
+.font-titulo-musica {
+  align-self: center;
+  font-size: 16px;
+  color: #8b9111;
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.card-sem-bordas-branco {
+  background-color: white;
+  border: none;
+}
+
+.list-group li {
+  border: none;
+  padding: 0 15px;
+}
+.border-color {
+  border-color: #21252938;
+}
+
+.lista-de-musicas {
+  margin: 20px 30px;
+}
+
+@media screen and (max-width: 575px) {
+  .font-navbar {
+    display: none;
+  }
+
+  .row {
+    flex-wrap: nowrap;
+  }
+
+  .lista-de-musicas {
+    margin: 20px 30px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .font-navbar {
+    font-size: 1em;
+  }
+  .logo-artista {
+    max-width: 5em;
+    max-height: 3em;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .titulo-artista {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .font-navbar {
+    font-size: 1.5em;
+  }
+
+  .main-artistas {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+  }
+
+  .logo-artista {
+    align-self: center;
+    width: 50px;
+    height: 50px;
+  }
+
+  .lista-de-musicas {
+    margin: 20px 50px;
+  }
+}
+
+@media screen and (min-width: 922px) {
+  .lista-de-musicas {
+    margin: 20px 50px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .lista-de-musicas {
+    margin: 10px 4vw;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .lista-de-musicas {
+    margin: 10px 7vw;
+  }
+}
