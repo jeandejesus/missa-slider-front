@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { Artista } from '../../shared/models/artista';
 
 @Component({
@@ -8,8 +8,9 @@ import { Artista } from '../../shared/models/artista';
   styleUrls: ['./artistas.component.scss']
 })
 export class ArtistasComponent implements OnInit {
-  faCofaEllipsisVertical = faUsers;
-   constructor() { }
+  faUser = faUsers;
+  faUserPlus = faUserPlus;
+    constructor() { }
 
   @Input()
   artistas : Artista[] = []

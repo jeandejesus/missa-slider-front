@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
@@ -9,8 +10,12 @@ import { DetalharArtistaComponent } from './components/artistas/detalhar-artista
 import { DetalharMusicaComponent } from './components/artistas/detalhar-artista/lista-musicas/detalhar-musica/detalhar-musica.component';
 import { ListaArtistasComponent } from './components/artistas/lista-artistas/lista-artistas.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { GeradorComponent } from './components/gerador/gerador.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
+
+
+
 
 
 @NgModule({
@@ -24,12 +29,14 @@ import { HomeComponent } from './components/home/home.component';
     ListaArtistasComponent,
     ListaMusicasComponent,
     DetalharMusicaComponent,
+    GeradorComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

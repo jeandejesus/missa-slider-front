@@ -10,14 +10,25 @@
   font-family: "Fredoka One", cursive;
 }
 
+.accordion > .card > .card-header {
+  background-color: white;
+}
+
 .show-none {
   display: none;
+}
+
+.main {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 3% 15%;
 }
 
 .main-artista {
   flex-direction: row;
   justify-content: center;
-  padding: 15px;
+  padding: 30px;
   border-radius: 0;
 }
 
@@ -35,8 +46,6 @@
 .card-sem-bordas-branco {
   background-color: white;
   border: none;
-  margin-left: 10%;
-  margin-right: 10%;
 }
 
 .list-group li {
@@ -51,10 +60,7 @@
   .font-navbar {
     display: none;
   }
-  .logo-artista {
-    max-width: 6rem;
 
-  }
   .row {
     flex-wrap: nowrap;
   }
@@ -73,13 +79,8 @@
     max-width: 100%;
   }
 
-  .main-artistas {
-
-    padding-top: 30px;
-  }
-
   .titulo-artista {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 
@@ -92,17 +93,11 @@
     display: flex;
     justify-content: center;
     padding-top: 30px;
-    align-items: center;
   }
 
   .icone-artista {
     display: flex;
     justify-content: center;
-  }
-  .logo-artista {
-    align-self: center;
-    max-width: 6em;
-    max-height: 4em;
   }
 }
 

@@ -4,6 +4,7 @@ import { ArtistasComponent } from './components/artistas/artistas.component';
 import { DetalharArtistaComponent } from './components/artistas/detalhar-artista/detalhar-artista.component';
 import { DetalharMusicaComponent } from './components/artistas/detalhar-artista/lista-musicas/detalhar-musica/detalhar-musica.component';
 import { ListaMusicasComponent } from './components/artistas/detalhar-artista/lista-musicas/lista-musicas.component';
+import { GeradorComponent } from './components/gerador/gerador.component';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
@@ -22,6 +23,11 @@ const routes: Routes = [
   },
   {
     path:'artistas/artista/:idArtista/musicas/:idMusica' , component: DetalharMusicaComponent,
+
+  },
+
+  {
+    path:'gerador' , component: GeradorComponent,
 
   },
   { path: '**', component: HomeComponent },  // Wildcard route for a 404 page
