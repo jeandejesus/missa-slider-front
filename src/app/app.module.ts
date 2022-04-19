@@ -13,6 +13,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { GeradorComponent } from './components/gerador/gerador.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
+import { BuscadorComponent } from './components/buscador/buscador.component';
 
 
 
@@ -30,6 +31,7 @@ import { HomeComponent } from './components/home/home.component';
     ListaMusicasComponent,
     DetalharMusicaComponent,
     GeradorComponent,
+    BuscadorComponent,
 
   ],
   imports: [

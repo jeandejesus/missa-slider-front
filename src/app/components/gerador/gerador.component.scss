@@ -48,12 +48,18 @@
   border: none;
 }
 
-.list-group li {
-  border: none;
-  padding: 0 15px;
+.items {
+  max-height: 300px;
+  overflow-y: visible;
+  overflow-x: hidden;
 }
 .border-color {
   border-color: #21252938;
+}
+
+.steps{
+  margin: 0;
+  padding: 0;
 }
 
 @media screen and (max-width: 575px) {
@@ -63,6 +69,14 @@
 
   .row {
     flex-wrap: nowrap;
+  }
+
+  .main{
+    margin: 3% 3%;
+
+  }
+  .container {
+    padding: 0;
   }
 }
 

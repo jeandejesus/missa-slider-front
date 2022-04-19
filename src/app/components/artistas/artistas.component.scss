@@ -45,6 +45,7 @@
   border-color: #21252938;
 }
 
+
 @media screen and (max-width: 575px) {
   .font-navbar {
     display: none;
@@ -52,6 +53,10 @@
 
   .row {
     flex-wrap: nowrap;
+  }
+
+  .texto-botao-artista{
+    display: none;
   }
 }
 
@@ -77,6 +82,9 @@
   .font-navbar {
     font-size: 1.5em;
   }
+  .texto-botao-artista{
+    display: none;
+  }
 
   .main-artistas {
     display: flex;
@@ -91,6 +99,9 @@
 }
 
 @media screen and (min-width: 922px) {
+  .texto-botao-artista{
+    display: initial;
+  }
 }
 
 @media screen and (min-width: 1200px) {

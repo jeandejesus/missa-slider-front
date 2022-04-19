@@ -19,7 +19,7 @@ body {
 
 @media screen and (min-width: 922px) {
   .main {
-    margin: 0 10vw;
+    margin: 0 15vw;
   }
 }
 
@@ -44,4 +44,8 @@ body {
 .btn-ms-primary{
   background-color: #8b9111;
   color: white  ;
+}
+
+.modal-content{
+  border-radius: 0;
 }

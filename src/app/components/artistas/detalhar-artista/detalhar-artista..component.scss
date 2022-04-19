@@ -48,6 +48,17 @@
 .lista-de-musicas {
   margin: 20px 30px;
 }
+.texto-botao-artista{
+  display: none;
+}
+
+ .letra {
+  height: 40vh;
+}
+
+.btn-ms-primary{
+  height: 80%;
+}
 
 @media screen and (max-width: 575px) {
   .font-navbar {
@@ -60,6 +71,9 @@
 
   .lista-de-musicas {
     margin: 20px 30px;
+  }
+  .texto-botao-artista{
+    display: none;
   }
 }
 
@@ -78,6 +92,9 @@
 
   .titulo-artista {
     font-size: 24px;
+  }
+  .texto-botao-artista{
+    display: none;
   }
 }
 
@@ -101,11 +118,17 @@
   .lista-de-musicas {
     margin: 20px 50px;
   }
+  .texto-botao-artista{
+    display: none;
+  }
 }
 
 @media screen and (min-width: 922px) {
   .lista-de-musicas {
     margin: 20px 50px;
+  }
+  .texto-botao-artista{
+    display: initial;
   }
 }
 
