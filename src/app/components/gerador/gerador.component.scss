@@ -10,19 +10,29 @@
   font-family: "Fredoka One", cursive;
 }
 
+.accordion > .card > .card-header {
+  background-color: white;
+}
+
 .show-none {
   display: none;
+}
+
+.main {
+  justify-content: center;
+  display: flex;
+  margin: 3% 15%;
 }
 
 .main-artista {
   flex-direction: row;
   justify-content: center;
-  padding-top: 30px;
+  padding: 30px;
   border-radius: 0;
 }
-.logo-artista {
-  max-width: 5em;
-  max-height: 3em;
+
+.icone-artista {
+  color: #8b911a;
 }
 
 .font-titulo-musica {
@@ -37,27 +47,18 @@
   border: none;
 }
 
-.list-group li {
-  border: none;
-  padding: 0 15px;
+.items {
+  max-height: 300px;
+  overflow-y: visible;
+  overflow-x: hidden;
 }
 .border-color {
   border-color: #21252938;
 }
 
-.lista-de-musicas {
-  margin: 20px 30px;
-}
-.texto-botao-artista {
-  display: none;
-}
-
-.letra {
-  height: 40vh;
-}
-
-.btn-ms-primary {
-  height: 80%;
+.steps {
+  margin: 0;
+  padding: 0;
 }
 
 @media screen and (max-width: 575px) {
@@ -69,11 +70,11 @@
     flex-wrap: nowrap;
   }
 
-  .lista-de-musicas {
-    margin: 20px 30px;
+  .main {
+    margin: 3% 3%;
   }
-  .texto-botao-artista {
-    display: none;
+  .container {
+    padding: 0;
   }
 }
 
@@ -93,9 +94,6 @@
   .titulo-artista {
     font-size: 24px;
   }
-  .texto-botao-artista {
-    display: none;
-  }
 }
 
 @media screen and (min-width: 768px) {
@@ -103,37 +101,38 @@
     font-size: 1.5em;
   }
 
-  .logo-artista {
-    align-self: center;
-    width: 50px;
-    height: 50px;
+  .main-artistas {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
   }
 
-  .lista-de-musicas {
-    margin: 20px 50px;
-  }
-  .texto-botao-artista {
-    display: none;
+  .icone-artista {
+    display: flex;
+    justify-content: center;
   }
 }
 
 @media screen and (min-width: 922px) {
-  .lista-de-musicas {
-    margin: 20px 50px;
-  }
-  .texto-botao-artista {
-    display: initial;
-  }
 }
 
 @media screen and (min-width: 1200px) {
-  .lista-de-musicas {
-    margin: 10px 4vw;
+  .main-artista {
+    margin-left: 3vw;
+    margin-right: 3vw;
   }
 }
 
-@media screen and (min-width: 1400px) {
-  .lista-de-musicas {
-    margin: 10px 7vw;
+@media screen and (min-width: 1440px) {
+  .main-artista {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  .main-artista {
+    margin-left: 10rem;
+    margin-right: 10rem;
   }
 }

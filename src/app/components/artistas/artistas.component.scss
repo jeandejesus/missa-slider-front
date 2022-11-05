@@ -53,6 +53,10 @@
   .row {
     flex-wrap: nowrap;
   }
+
+  .texto-botao-artista {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 576px) {
@@ -77,11 +81,8 @@
   .font-navbar {
     font-size: 1.5em;
   }
-
-  .main-artistas {
-    display: flex;
-    justify-content: center;
-    padding-top: 30px;
+  .texto-botao-artista {
+    display: none;
   }
 
   .icone-artista {
@@ -91,6 +92,9 @@
 }
 
 @media screen and (min-width: 922px) {
+  .texto-botao-artista {
+    display: initial;
+  }
 }
 
 @media screen and (min-width: 1200px) {

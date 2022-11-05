@@ -2,13 +2,51 @@
   <section class="container">
     <div class="row border-bottom justify-content-center main-artista ">
 
-        <fa-icon class="col-4 col-sm-3 col-md-2 col-lg-1 col-xl-1 icone-artista fa-2xl  " [icon]="faCofaEllipsisVertical"></fa-icon>
-        <h3 class="col-8 col-sm-9 col-md-10 col-lg-11 col-xl-11   titulo-artista align-self-center fw-bold p-0 m-0">Artistas
+        <fa-icon class="col-4 col-sm-3 col-md-2 col-lg-1 col-xl-1 icone-artista fa-2xl  " [icon]="faUser"></fa-icon>
+        <h3 class="col-8 col-sm-9 col-md-8 col-lg-8 col-xl-8   titulo-artista align-self-center fw-bold p-0 m-0">Artistas
         </h3>
+
+        <button type="button" class="btn btn-ms-primary" data-toggle="modal" data-target="#exampleModal">
+          <fa-icon class="" [icon]="faUserPlus"></fa-icon>
+          <span class="texto-botao-artista"> Novo Artista </span>
+        </button>
 
      </div>
 </section>
 <section class="lista-de-artistas">
         <app-lista-artistas *ngFor="let artista of artistas" [artista]="artista"></app-lista-artistas>
 </section>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Novo Artista</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row form-group">
+          <div class="col-12">
+            <input type="text" class="form-control" aria-label="nome do artista" placeholder="Nome do Artista">
+          </div>
+          </div>
+          <div class="row">
+          <div class="col-12">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile01">
+              <label class="custom-file-label" for="inputGroupFile01">Escolha imagem </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-ms-primary">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
 </main>

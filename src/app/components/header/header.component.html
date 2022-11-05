@@ -1,37 +1,62 @@
 <header class="header">
-  <div class="fixed-top  p-0">
-
+  <div class="fixed-top p-0">
     <nav class="navbar navbar-dark bg-menu row text-center">
-      <button class="navbar-toggler button-split col-2 col-sm-1 col-md-1 col-lg-2" type="button" data-toggle="collapse"
-        data-target="#navbarToggleExternalContent" (click)="mouseIn=true" aria-controls="navbarToggleExternalContent"
-        aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler button-split col-2 col-sm-1 col-md-1 col-lg-2"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarToggleExternalContent"
+        (click)="mouseIn = true"
+        aria-controls="navbarToggleExternalContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <p class="col-lg-2 col-sm-2 col-md-3 font-navbar " routerLink="/">
+      <p class="col-lg-2 col-sm-2 col-md-3 font-navbar" routerLink="/">
         Missa Slider
       </p>
-      <div class=" col-10 col-sm-9 col-md-8 col-lg-8 search-tamanho ">
-        <input class="form-control me-2 input-search" type="search" placeholder="Digite um artista..."
-          aria-label="Search">
+      <div class="col-10 col-sm-9 col-md-8 col-lg-8 search-tamanho">
+        <input
+          class="form-control me-2 input-search"
+          type="search"
+          placeholder="Digite um artista..."
+          aria-label="Search"
+        />
       </div>
     </nav>
     <div class="collapse" id="navbarToggleExternalContent" *ngIf="mouseIn">
-      <div (mouseleave)="mouseIn=false" class="bg-menu-white p-4 nav-open shadow p-3 mb-5 ">
+      <div
+        (mouseleave)="mouseIn = false"
+        class="bg-menu-white p-4 nav-open shadow p-3 mb-5"
+      >
         <ul class="navbar-nav">
           <li class="nav-item nav-home">
-            <a routerLink="/" class="nav-link text-decoration-none text-reset" href="#"></a>
+            <a
+              routerLink="/"
+              class="nav-link text-decoration-none text-reset"
+              href="#"
+            ></a>
           </li>
-          <li class="nav-item ">
-            <a routerLink="/artistas" class="nav-link text-decoration-none text-reset" href="#">Artistas</a>
+          <li class="nav-item">
+            <a
+              routerLink="/artistas"
+              class="nav-link text-decoration-none text-reset"
+              href="#"
+              >Artistas</a
+            >
           </li>
 
           <li class="nav-item">
-            <a routerLink="/" class="nav-link text-decoration-none text-reset" href="#">Gerador</a>
+            <a
+              routerLink="/"
+              class="nav-link text-decoration-none text-reset"
+              href="#"
+              >Gerador</a
+            >
           </li>
-
         </ul>
       </div>
     </div>
-
   </div>
 </header>

@@ -1,10 +1,29 @@
-<ol class="list-group m-3 list-group-numbered"  >
-  <li class="list-group-item" *ngFor="let musica of musicas; let i = index">
-    <div class="row">
-      <p class="col-1">{{i + 1}}</p>
-      <p class="col-10">{{musica.nome}}</p>
-      <fa-icon class="col-1" [icon]="faCofaEllipsisVertical"></fa-icon>
-
+<section class="container">
+  <div class="list-group list-group-flush row">
+    <div
+      class="list-group-item list-group-item-action flex-column align-items-start"
+      *ngFor="let musica of musicas; let i = index"
+    >
+      <div class="row justify-content-center">
+        <p class="col-1">{{ i + 1 }}</p>
+        <p routerLink="/artistas/artista/:idArtista/musicas/1" class="col-9">
+          {{ musica.nome }}
+        </p>
+        <div class="col-2 d-flex justify-content-around">
+          <fa-icon
+            data-toggle="modal"
+            data-target="#exampleModal"
+            [icon]="faPencil"
+          ></fa-icon>
+          <fa-icon
+            [icon]="faTrash"
+            data-toggle="modal"
+            data-target="#confirmModal"
+          ></fa-icon>
+        </div>
+      </div>
     </div>
-  </li>
-</ol>
+  </div>
+</section>
+
+<app-modal-confirmacao></app-modal-confirmacao>

@@ -1,0 +1,85 @@
+<main class="main">
+  <section class="container">
+
+    <h5 class="font-titulo mt-0 cor-especial "> Selecione as músicas para cada partes da missa</h5>
+
+
+    <div class="accordion list-group list-group-flush" id="accordionExample">
+      <div class="list-group-item steps list-group-item-action flex-column align-items-start">
+        <div id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+              data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              Entrada
+            </button>
+          </h2>
+        </div>
+
+        <div id="collapseOne" class="collapse"  aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Artista</label>
+              </div>
+              <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Colo de Deus...</option>
+                <option value="1">Padre</option>
+                <option value="2">Shalom</option>
+                <option value="3">Canção</option>
+              </select>
+            </div>
+
+
+            <section class="container items">
+              <div class="list-group list-group-flush   row">
+                <div class="list-group-item  list-group-item-action flex-column align-items-start"
+                  *ngFor="let musica of musicas; let i = index">
+                  <div class="row justify-content-center">
+                    <p class="col-1">{{i + 1}}</p>
+                    <p routerLink="/artistas/artista/:idArtista/musicas/1" class="col-10">{{musica.nome}}</p>
+
+                  </div>
+                </div>
+
+              </div>
+            </section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="list-group-item steps list-group-item-action flex-column align-items-start">
+        <div id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+              data-target="#gerar" aria-expanded="false" aria-controls="collapseOne">
+              Finalizar
+            </button>
+          </h2>
+        </div>
+
+        <div id="gerar" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <div class="input-group mb-3">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Tamanho da fonte</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option selected>30</option>
+                  <option value="1">40</option>
+                  <option value="2">50</option>
+                  <option value="3">60</option>
+                </select>
+              </div>
+              <button type="button" class="btn btn-ms-primary btn-lg btn-block">Gerar slides</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+</main>

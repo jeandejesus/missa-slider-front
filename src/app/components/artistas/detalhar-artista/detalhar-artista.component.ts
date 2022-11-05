@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faEllipsisVertical } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisVertical, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { Artista } from './../../../shared/models/artista';
 @Component({
   selector: 'app-detalhar-artista.',
@@ -9,6 +9,7 @@ import { Artista } from './../../../shared/models/artista';
 export class DetalharArtistaComponent implements OnInit {
 
   faCofaEllipsisVertical = faEllipsisVertical;
+  faUserPlus = faUserPlus
 
   artista : Artista = {}
   constructor() { }

@@ -3,11 +3,14 @@
   <section class="container">
       <div class="row border-bottom  justify-content-center pb-3 main-artista ">
           <img class="col-2 col-sm-2  rounded-circle logo-artista" src="/assets/img/logo-artista-tb2.webp" alt="Artista">
-          <h3 class="col-8 col-sm-9 titulo-artista align-self-center fw-bold p-0 m-0">{{artista.nome}}
+          <h3 class="col-7 col-sm-8 titulo-artista align-self-center fw-bold p-0 m-0">{{artista.nome}}
           </h3>
 
-          <fa-icon class="col-1 col-sm-1 " [icon]="faCofaEllipsisVertical"></fa-icon>
 
+          <button type="button" class="btn btn-ms-primary" data-toggle="modal" data-target="#exampleModal">
+            <fa-icon class="" [icon]="faUserPlus"></fa-icon>
+            <span class="texto-botao-artista"> Nova música </span>
+          </button>
        </div>
   </section>
   <section class="lista-de-musicas">
@@ -20,6 +23,38 @@
 
       </div>
   </section>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nova música</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
 
+          <div class="row form-group">
+            <div class="col-12">
+              <input type="text" class="form-control" aria-label="nome da música" placeholder="Nome da música">
+            </div>
+            </div>
+            <div class="row form-group">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Letra:</label>
+                <textarea class="form-control letra" id="message-text"></textarea>
+              </div>
+             </div>
+           </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-ms-primary">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </main>
