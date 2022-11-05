@@ -1,13 +1,30 @@
 <section class="container">
-  <div class="list-group list-group-flush row" >
-    <div class="list-group-item list-group-item-action flex-column align-items-start">
-     <div class="row justify-content-center">
-      <img routerLink="/artistas/artista/1" class="col-2 col-sm-2 logo-artista rounded-circle" src="{{artista.imagem || '/assets/img/perfil_defaut.jpg'}}" alt="Artista">
-      <h3 routerLink="/artistas/artista/1"  class="col-6 col-sm-9  font-titulo-artistas align-self-center fw-bold p-0 m-0">{{artista.nome}}
-      </h3>
-      <fa-icon class="col-1 col-sm-1 " data-toggle="modal" data-target="#exampleModal" [icon]="faCofaEllipsisVertical"></fa-icon>
+  <div class="list-group list-group-flush row">
+    <div
+      class="list-group-item list-group-item-action flex-column align-items-start"
+    >
+      <div class="row justify-content-center">
+        <img
+          routerLink="/artistas/artista/1"
+          class="col-2 col-sm-2 logo-artista rounded-circle"
+          src="{{ artista.imagem || '/assets/img/perfil_defaut.jpg' }}"
+          alt="Artista"
+        />
+        <h3
+          routerLink="/artistas/artista/1"
+          class="col-6 col-sm-8 font-titulo-artistas align-self-center fw-bold p-0 m-0"
+        >
+          {{ artista.nome }}
+        </h3>
+        <div class="col-2 d-flex justify-content-around">
+          <fa-icon
+            data-toggle="modal"
+            data-target="#exampleModal"
+            [icon]="faPencil"
+          ></fa-icon>
+          <fa-icon (click)="deletar()" [icon]="faTrash"></fa-icon>
+        </div>
+      </div>
     </div>
-    </div>
-
   </div>
 </section>

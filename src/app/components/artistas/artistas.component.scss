@@ -45,7 +45,6 @@
   border-color: #21252938;
 }
 
-
 @media screen and (max-width: 575px) {
   .font-navbar {
     display: none;
@@ -55,7 +54,7 @@
     flex-wrap: nowrap;
   }
 
-  .texto-botao-artista{
+  .texto-botao-artista {
     display: none;
   }
 }
@@ -82,14 +81,8 @@
   .font-navbar {
     font-size: 1.5em;
   }
-  .texto-botao-artista{
+  .texto-botao-artista {
     display: none;
-  }
-
-  .main-artistas {
-    display: flex;
-    justify-content: center;
-    padding-top: 30px;
   }
 
   .icone-artista {
@@ -99,7 +92,7 @@
 }
 
 @media screen and (min-width: 922px) {
-  .texto-botao-artista{
+  .texto-botao-artista {
     display: initial;
   }
 }
