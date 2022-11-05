@@ -15,9 +15,15 @@
             data-target="#exampleModal"
             [icon]="faPencil"
           ></fa-icon>
-          <fa-icon (click)="deletar()" [icon]="faTrash"></fa-icon>
+          <fa-icon
+            [icon]="faTrash"
+            data-toggle="modal"
+            data-target="#confirmModal"
+          ></fa-icon>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<app-modal-confirmacao></app-modal-confirmacao>

@@ -14,6 +14,7 @@ import { GeradorComponent } from './components/gerador/gerador.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
+import { ModalConfirmacaoComponent } from './components/modal-confirmacao/modal-confirmacao.component';
 
 
 
@@ -32,6 +33,7 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
     DetalharMusicaComponent,
     GeradorComponent,
     BuscadorComponent,
+    ModalConfirmacaoComponent,
 
   ],
   imports: [
