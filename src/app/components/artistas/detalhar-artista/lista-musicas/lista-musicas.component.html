@@ -1,16 +1,23 @@
-
-
 <section class="container">
-  <div class="list-group list-group-flush row" >
-    <div class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let musica of musicas; let i = index">
-     <div class="row justify-content-center">
-      <p class="col-1">{{i + 1}}</p>
-      <p routerLink="/artistas/artista/:idArtista/musicas/1" class="col-10">{{musica.nome}}</p>
-      <fa-icon data-toggle="modal" data-target="#exampleModal" class="col-1" [icon]="faCofaEllipsisVertical"></fa-icon>
-
+  <div class="list-group list-group-flush row">
+    <div
+      class="list-group-item list-group-item-action flex-column align-items-start"
+      *ngFor="let musica of musicas; let i = index"
+    >
+      <div class="row justify-content-center">
+        <p class="col-1">{{ i + 1 }}</p>
+        <p routerLink="/artistas/artista/:idArtista/musicas/1" class="col-9">
+          {{ musica.nome }}
+        </p>
+        <div class="col-2 d-flex justify-content-around">
+          <fa-icon
+            data-toggle="modal"
+            data-target="#exampleModal"
+            [icon]="faPencil"
+          ></fa-icon>
+          <fa-icon (click)="deletar()" [icon]="faTrash"></fa-icon>
+        </div>
+      </div>
     </div>
-    </div>
-
   </div>
 </section>
-
