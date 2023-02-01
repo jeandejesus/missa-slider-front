@@ -7,24 +7,24 @@
     <div class="accordion list-group list-group-flush" id="accordionExample">
       <div
         class="list-group-item steps list-group-item-action flex-column align-items-start"
+        *ngFor="let parte of partesMissa; let indexOrdenador= index"
       >
-        <div id="headingOne">
+       <div id="headingOne">
           <h2 class="mb-0">
             <button
-              class="btn btn-dark btn-block text-left"
-              type="button"
-              data-toggle="collapse"
-              data-target="#collapseOne"
-              aria-expanded="false"
-              aria-controls="collapseOne"
+            class="btn btn-dark btn-block text-left"
+            type="button"
+            data-toggle="collapse"
+            [attr.data-target]="'#parte'+ indexOrdenador"
+            aria-expanded="false"
+            aria-controls="collapseOne"
             >
-              Entrada
+              {{parte.nome}}
             </button>
           </h2>
         </div>
-
-        <div
-          id="collapseOne"
+         <div
+          id="parte{{indexOrdenador}}"
           class="collapse"
           aria-labelledby="headingOne"
           data-parent="#accordionExample"
@@ -43,10 +43,18 @@
                 <option value="3">Canção</option>
               </select>
             </div>
+
+            <form >
+
+            <label>Pesquisa musica</label>
+            <input type="text" placeholder="Ex. Desperta"  name="termo"  [(ngModel)]="termo" (blur)="limpar()" >
+            </form>
             <select class="custom-select" size="6">
-              <option
-                *ngFor="let musica of musicas; let i = index"
+
+               <option
+                *ngFor="let musica of musicas |  pesquisa: termo ; let i = index"
                 class="col-12"
+                (click)="enviarInformacao(musica.nome, indexOrdenador )"
               >
                 {{ musica.nome }}
               </option>
@@ -57,7 +65,7 @@
       <div
         class="list-group-item steps list-group-item-action flex-column align-items-start"
       >
-        <div id="headingOne">
+        <div id="headingOne1">
           <h2 class="mb-0">
             <button
               class="btn btn-dark btn-block text-left"
@@ -86,14 +94,12 @@
                     >Tamanho da fonte</label
                   >
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
-                  <option selected>30</option>
-                  <option value="1">40</option>
-                  <option value="2">50</option>
-                  <option value="3">60</option>
+                <select class="custom-select" id="inputGroupSelect01"  [(ngModel)]="fontSize" (change)="selecionarTamanhoDaFonte($event.target)">
+                   <option *ngFor="let tamanho of tamanhosFontes" value= {{tamanho}}> {{tamanho}} </option>n>
+
                 </select>
               </div>
-              <button type="button" class="btn btn-ms-primary btn-lg btn-block">
+              <button type="button" (click)="imprimir()" class="btn btn-ms-primary btn-lg btn-block">
                 Gerar slides
               </button>
             </div>

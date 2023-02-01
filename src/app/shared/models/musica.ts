@@ -2,7 +2,7 @@ import { Artista } from "./artista"
 
 export class Musica {
 
-  nome ?: string = ""
+  nome : string = ""
   idMusica?: number
   versos ?: any[] = []
   artista?: Artista

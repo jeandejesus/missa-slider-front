@@ -15,7 +15,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { ModalConfirmacaoComponent } from './components/modal-confirmacao/modal-confirmacao.component';
-
+import { FormsModule } from "@angular/forms";
+import { MyFilterPipe } from './utils/filtro.pipe';
 
 
 
@@ -34,13 +35,14 @@ import { ModalConfirmacaoComponent } from './components/modal-confirmacao/modal-
     GeradorComponent,
     BuscadorComponent,
     ModalConfirmacaoComponent,
-
-  ],
+    MyFilterPipe
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
