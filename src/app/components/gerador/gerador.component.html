@@ -24,42 +24,58 @@
           </h2>
         </div>
          <div
+
           id="parte{{indexOrdenador}}"
           class="collapse"
           aria-labelledby="headingOne"
           data-parent="#accordionExample"
         >
-          <div class="card-body">
-            <div class="input-group mb-3">
+          <div class="card-body" >
+            <div *ngIf="!parte.tipo">
+            <div class="input-group mb-3" *ngIf="!parte.tipo">
               <div class="input-group-prepend">
                 <label class="input-group-text" for="inputGroupSelect01"
                   >Artista</label
                 >
               </div>
-              <select class="custom-select" id="inputGroupSelect01">
-                <option selected>Colo de Deus...</option>
-                <option value="1">Padre</option>
-                <option value="2">Shalom</option>
-                <option value="3">Canção</option>
+              <select class="custom-select" id="inputGroupSelect01"  (change)="buscarMusicas($event.target)">
+                <option selected>Selecione o Artista</option>
+                <option *ngFor="let artista of artistas" value= {{artista.idArtista}}> {{artista.nome}} </option>n>
               </select>
             </div>
 
-            <form >
 
             <label>Pesquisa musica</label>
             <input type="text" class="form-control" placeholder="Ex. Desperta"  name="termo"  [(ngModel)]="termo" (blur)="limpar()" >
-            </form>
-            <select class="custom-select" size="6">
+            <select class="custom-select list-group list-group-flush" size="6">
 
                <option
                 *ngFor="let musica of musicas |  pesquisa: termo ; let i = index"
-                class="col-12"
+                class="col-12 list-group-item"
                 (click)="enviarInformacao(musica.nome, indexOrdenador )"
               >
                 {{ musica.nome }}
               </option>
             </select>
           </div>
+          <div *ngIf="parte.tipo === 'salmo'">
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Digite o salmo do dia</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div *ngIf="parte.tipo === 'oracao'">
+            <div class="form-group">
+               <select class="custom-select" id="inputGroupSelect01"  (change)="buscarMusicas($event.target)">
+                <option selected>Selecione a oração eucaristica</option>
+                <option *ngFor="let oracao of oracoes" value= {{oracao.idOracaoEucaristica}}> {{oracao.nomeOrcacao}} </option>n>
+              </select>
+             </div>
+          </div>
+
+          </div>
+
         </div>
       </div>
       <div

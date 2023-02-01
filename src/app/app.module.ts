@@ -17,6 +17,7 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
 import { ModalConfirmacaoComponent } from './components/modal-confirmacao/modal-confirmacao.component';
 import { FormsModule } from "@angular/forms";
 import { MyFilterPipe } from './utils/filtro.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -42,7 +43,8 @@ import { MyFilterPipe } from './utils/filtro.pipe';
     AppRoutingModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
