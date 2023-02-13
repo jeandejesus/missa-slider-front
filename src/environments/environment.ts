@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://gerador-de-slide-missa-production.up.railway.app/'
+  baseUrl: 'http://localhost:8080/'
 };
 
 /*

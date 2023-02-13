@@ -9,8 +9,6 @@ import {Artista}  from '../shared/models/artista';
 })
 export class ArtistasService {
 
-
-
   baseUrl = environment.baseUrl
 
   constructor(private http: HttpClient) {
@@ -19,8 +17,17 @@ export class ArtistasService {
 
   findAll(): Observable<Artista[]> {
     const url = `${this.baseUrl}artistas`
-
     return this.http.get<Artista[]>(url)
-
   }
+
+  createArtista(artista : Artista):Observable<Artista[]>  {
+    const url = `${this.baseUrl}artistas`
+    return this.http.post<any>(url, artista);
+  }
+
+  delete(id: any): Observable<void> {
+    const url = `${this.baseUrl}artistas/${id}`
+    return this.http.delete<void>(url)
+  }
+
 }

@@ -50,6 +50,9 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
+        <form [formGroup]="artistaForm"  (ngSubmit)="onSubmit()">
+
         <div class="modal-body">
           <div class="row form-group">
             <div class="col-12">
@@ -58,6 +61,7 @@
                 class="form-control"
                 aria-label="nome do artista"
                 placeholder="Nome do Artista"
+                formControlName="nome"
               />
             </div>
           </div>
@@ -68,6 +72,7 @@
                   type="file"
                   class="custom-file-input"
                   id="inputGroupFile01"
+                  formControlName="imagem"
                 />
                 <label class="custom-file-label" for="inputGroupFile01"
                   >Escolha imagem
@@ -80,9 +85,10 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Fechar
           </button>
-          <button type="button" class="btn btn-ms-primary">Salvar</button>
+          <button type="submit" class="btn btn-ms-primary"  >Salvar</button>
         </div>
-      </div>
+      </form>
+      </div>,
     </div>
   </div>
 </main>

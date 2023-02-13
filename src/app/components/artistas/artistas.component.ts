@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { ArtistasService } from 'src/app/services/artistas.service';
 import { Artista } from '../../shared/models/artista';
 
 @Component({
@@ -10,16 +13,33 @@ import { Artista } from '../../shared/models/artista';
 export class ArtistasComponent implements OnInit {
   faUser = faUsers;
   faUserPlus = faUserPlus;
-    constructor() { }
+  artistaForm : FormGroup;
+
+  constructor(private serviceArtista : ArtistasService) {
+    this.artistaForm = new FormGroup({
+      nome: new FormControl(''),
+      imagem: new FormControl(''),
+    });
+  }
 
   @Input()
   artistas : Artista[] = []
 
   ngOnInit(): void {
-    this.artistas.push({ nome: 'colo de Deus', imagem : "/assets/img/logo-artista-tb2.webp"})
-
-    this.artistas.push({ nome: 'Desconhecidos', imagem : ""})
-
+    this.carregarAtistas()
   }
+
+  carregarAtistas():void{
+    this.serviceArtista.findAll().subscribe((data)=>{
+      this.artistas = data;
+    })
+  }
+
+   async onSubmit(){
+     this.serviceArtista.createArtista(this.artistaForm.value).subscribe(()=>{
+      this.carregarAtistas()
+     })
+  }
+
 
 }

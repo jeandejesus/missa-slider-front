@@ -4,6 +4,7 @@ import {
   faTrash,
   faPencil,
 } from '@fortawesome/free-solid-svg-icons';
+import { ArtistasService } from 'src/app/services/artistas.service';
 import { Artista } from '../../../shared/models/artista';
 
 @Component({
@@ -17,11 +18,18 @@ export class ListaArtistasComponent implements OnInit {
   faPencil = faPencil;
 
   @Input()
-  artista: Artista = {};
+  artista: Artista = {}
 
-  constructor() {}
-
+  constructor(private serviceArtista : ArtistasService) {
+  }
   ngOnInit(): void {}
 
-  deletar(): void {}
+  deleteArtista(idArtista : any)
+  {
+     this.serviceArtista.delete(idArtista).subscribe(()=>{
+      document.location.reload();
+
+     })
+  }
+
 }
