@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container" *ngFor="let artista of artistas">
   <div class="list-group list-group-flush row">
     <div
       class="list-group-item list-group-item-action flex-column align-items-start"
@@ -21,6 +21,7 @@
             data-toggle="modal"
             data-target="#exampleModal"
             [icon]="faPencil"
+            (click)="editarArtista(artista)"
           ></fa-icon>
           <fa-icon
             [icon]="faTrash"
@@ -31,5 +32,5 @@
       </div>
     </div>
   </div>
+  <app-modal-confirmacao (confirmacao)="deleteArtista(artista.idArtista)"></app-modal-confirmacao>
 </section>
-<app-modal-confirmacao (confirmacao)="deleteArtista(artista.idArtista)"></app-modal-confirmacao>

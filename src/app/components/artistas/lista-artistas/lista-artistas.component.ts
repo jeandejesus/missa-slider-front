@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   faEllipsisVertical,
   faTrash,
@@ -18,11 +18,16 @@ export class ListaArtistasComponent implements OnInit {
   faPencil = faPencil;
 
   @Input()
-  artista: Artista = {}
+  artistas: Artista[] = []
+
+  @Output()
+   artista = new EventEmitter<Artista>();
 
   constructor(private serviceArtista : ArtistasService) {
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.carregarAtistas()
+  }
 
   deleteArtista(idArtista : any)
   {
@@ -30,6 +35,16 @@ export class ListaArtistasComponent implements OnInit {
       document.location.reload();
 
      })
+  }
+
+  carregarAtistas():void{
+    this.serviceArtista.findAll().subscribe((data)=>{
+      this.artistas = data;
+    })
+  }
+
+  editarArtista(artista : Artista){
+    this.artista.emit(artista)
   }
 
 }

@@ -23,9 +23,7 @@
     </div>
   </section>
   <section class="lista-de-artistas">
-    <app-lista-artistas
-      *ngFor="let artista of artistas"
-      [artista]="artista"
+    <app-lista-artistas (artista)="editar($event)"
     ></app-lista-artistas>
   </section>
 
@@ -46,12 +44,14 @@
             class="close"
             data-dismiss="modal"
             aria-label="Close"
+            #closebutton
           >
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
 
-        <form [formGroup]="artistaForm"  (ngSubmit)="onSubmit()">
+        <form [formGroup]="artistaForm"
+        (ngSubmit)="onSubmit()">
 
         <div class="modal-body">
           <div class="row form-group">
@@ -85,10 +85,10 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Fechar
           </button>
-          <button type="submit" class="btn btn-ms-primary"  >Salvar</button>
+          <button type="submit" class="btn btn-ms-primary" >Salvar</button>
         </div>
       </form>
-      </div>,
+      </div>
     </div>
   </div>
 </main>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
@@ -14,32 +14,38 @@ export class ArtistasComponent implements OnInit {
   faUser = faUsers;
   faUserPlus = faUserPlus;
   artistaForm : FormGroup;
-
-  constructor(private serviceArtista : ArtistasService) {
-    this.artistaForm = new FormGroup({
-      nome: new FormControl(''),
-      imagem: new FormControl(''),
-    });
-  }
+  @ViewChild('closebutton') closebutton :any ;
 
   @Input()
   artistas : Artista[] = []
 
-  ngOnInit(): void {
-    this.carregarAtistas()
+  artista : Artista = {}
+
+  constructor(private serviceArtista : ArtistasService, private router : Router) {
+    this.artistaForm = new FormGroup({
+      nome: new FormControl(''),
+      imagem: new FormControl(''),
+      idArtista: new FormControl()
+    });
   }
 
-  carregarAtistas():void{
-    this.serviceArtista.findAll().subscribe((data)=>{
-      this.artistas = data;
-    })
+
+  ngOnInit(): void {
+   }
+
+
+  editar(artista : Artista){
+       this.artistaForm.controls.nome.setValue(artista.nome)
+       this.artistaForm.controls.idArtista.setValue(artista.idArtista)
   }
 
    async onSubmit(){
-     this.serviceArtista.createArtista(this.artistaForm.value).subscribe(()=>{
-      this.carregarAtistas()
+     this.serviceArtista.createUpdateArtista(this.artistaForm.value).subscribe(()=>{
+      this.closebutton.nativeElement.click();
+       window.location.reload();
      })
   }
+
 
 
 }

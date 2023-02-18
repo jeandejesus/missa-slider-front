@@ -20,8 +20,16 @@ export class ArtistasService {
     return this.http.get<Artista[]>(url)
   }
 
-  createArtista(artista : Artista):Observable<Artista[]>  {
+  find(idAritsta : number): Observable<Artista[]> {
+    const url = `${this.baseUrl}artista/${idAritsta}`
+    return this.http.get<Artista[]>(url)
+  }
+
+  createUpdateArtista(artista : Artista):Observable<Artista[]>  {
     const url = `${this.baseUrl}artistas`
+    if(artista.idArtista){
+     return this.http.put<any>(url, artista);
+    }
     return this.http.post<any>(url, artista);
   }
 
