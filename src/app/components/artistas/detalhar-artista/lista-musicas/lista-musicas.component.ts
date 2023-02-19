@@ -1,9 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {
   faEllipsisVertical,
   faTrash,
   faPencil,
 } from '@fortawesome/free-solid-svg-icons';
+import { MusicasService } from 'src/app/services/musicas.service';
 import { Artista } from 'src/app/shared/models/artista';
 import { Musica } from 'src/app/shared/models/musica';
 
@@ -18,19 +20,35 @@ export class ListaMusicasComponent implements OnInit {
   faPencil = faPencil;
 
   @Input()
-  artista: Artista = {};
+  idArtista: any;
 
   musicas: Musica[] = [];
+  @Output()
+  musica = new EventEmitter<Musica>();
 
-  constructor() {}
+  idMusicaDelete: number = 0;
 
-  ngOnInit(): void {
-    this.musicas.push({ nome: 'yeshua' });
-    this.musicas.push({ nome: 'Queima de novo' });
-    this.musicas.push({ nome: 'Fogo Santo' });
-    this.musicas.push({ nome: 'Mistica sublime' });
-    this.musicas.push({ nome: 'Casa' });
+  constructor(
+    private muscicaService: MusicasService,
+    private route: ActivatedRoute
+  ) {}
+
+  async ngOnInit(): Promise<void> {
+    this.route.params.subscribe(async (params) => {
+      this.musicas = await this.muscicaService.findAll(params.id).toPromise();
+    });
   }
 
-  deletar(): void {}
+  editar(musica: Musica) {
+    this.musica.emit(musica);
+  }
+
+  deleteMusica(idMusica: any) {
+    this.idMusicaDelete = idMusica;
+  }
+  confirmarDelete(): void {
+    this.muscicaService.delete(this.idMusicaDelete).subscribe(() => {
+      window.location.reload();
+    });
+  }
 }

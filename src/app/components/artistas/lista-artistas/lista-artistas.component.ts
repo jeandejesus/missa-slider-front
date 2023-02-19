@@ -18,33 +18,34 @@ export class ListaArtistasComponent implements OnInit {
   faPencil = faPencil;
 
   @Input()
-  artistas: Artista[] = []
+  artistas: Artista[] = [];
 
   @Output()
-   artista = new EventEmitter<Artista>();
+  artista = new EventEmitter<Artista>();
 
-  constructor(private serviceArtista : ArtistasService) {
-  }
+  idArtistaDelete!: number;
+
+  constructor(private serviceArtista: ArtistasService) {}
   ngOnInit(): void {
-    this.carregarAtistas()
+    this.carregarAtistas();
   }
 
-  deleteArtista(idArtista : any)
-  {
-     this.serviceArtista.delete(idArtista).subscribe(()=>{
+  confirmarDelete() {
+    this.serviceArtista.delete(this.idArtistaDelete).subscribe(() => {
       document.location.reload();
-
-     })
+    });
+  }
+  deletar(idArtista: number = 0) {
+    this.idArtistaDelete = idArtista;
   }
 
-  carregarAtistas():void{
-    this.serviceArtista.findAll().subscribe((data)=>{
+  carregarAtistas(): void {
+    this.serviceArtista.findAll().subscribe((data) => {
       this.artistas = data;
-    })
+    });
   }
 
-  editarArtista(artista : Artista){
-    this.artista.emit(artista)
+  editarArtista(artista: Artista) {
+    this.artista.emit(artista);
   }
-
 }

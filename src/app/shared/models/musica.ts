@@ -1,11 +1,8 @@
-import { Artista } from "./artista"
+import { Artista } from './artista';
 
 export class Musica {
-
-  nome : string = ""
-  idMusica?: number
-  versos ?: any[] = []
-  artista?: Artista
-  parteMissa ?: string =""
-
+  nome?: string = '';
+  idMusica?: number;
+  letras?: string;
+  artista?: Artista;
 }

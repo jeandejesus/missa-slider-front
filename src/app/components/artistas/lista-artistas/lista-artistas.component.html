@@ -3,16 +3,16 @@
     <div
       class="list-group-item list-group-item-action flex-column align-items-start"
     >
-      <div class="row row justify-content-around">
+      <div class="row row justify-content-around"   routerLink="/artistas/artista/{{artista.idArtista}}">
         <img
-          routerLink="/artistas/artista/1"
-          class="col-2 col-sm-2 logo-artista rounded-circle"
+
+          class="col-2 col-sm-2 logo-artista rounded-circle pointer"
           src="{{ artista.imagem || '/assets/img/perfil_defaut.jpg' }}"
           alt="Artista"
         />
         <h3
-          routerLink="/artistas/artista/1"
-          class="col-6 col-sm-8 font-titulo-artistas align-self-center fw-bold p-0 m-0"
+
+          class=" curso-pointer col-6 col-sm-8 font-titulo-artistas align-self-center fw-bold p-0 m-0 pointer"
         >
           {{ artista.nome }}
         </h3>
@@ -27,10 +27,12 @@
             [icon]="faTrash"
             data-toggle="modal"
             data-target="#confirmModal"
+            (click)="deletar(artista.idArtista)"
+
           ></fa-icon>
         </div>
       </div>
     </div>
   </div>
-  <app-modal-confirmacao (confirmacao)="deleteArtista(artista.idArtista)"></app-modal-confirmacao>
 </section>
+<app-modal-confirmacao (confirmacao)="confirmarDelete()"></app-modal-confirmacao>

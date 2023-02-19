@@ -8,44 +8,43 @@ import { Artista } from '../../shared/models/artista';
 @Component({
   selector: 'app-artistas',
   templateUrl: './artistas.component.html',
-  styleUrls: ['./artistas.component.scss']
+  styleUrls: ['./artistas.component.scss'],
 })
 export class ArtistasComponent implements OnInit {
   faUser = faUsers;
   faUserPlus = faUserPlus;
-  artistaForm : FormGroup;
-  @ViewChild('closebutton') closebutton :any ;
+  artistaForm: FormGroup;
+  @ViewChild('closebutton') closebutton: any;
 
   @Input()
-  artistas : Artista[] = []
+  artistas: Artista[] = [];
 
-  artista : Artista = {}
+  artista: Artista = {};
 
-  constructor(private serviceArtista : ArtistasService, private router : Router) {
+  constructor(private serviceArtista: ArtistasService) {
     this.artistaForm = new FormGroup({
       nome: new FormControl(''),
       imagem: new FormControl(''),
-      idArtista: new FormControl()
+      idArtista: new FormControl(),
     });
   }
 
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-   }
-
-
-  editar(artista : Artista){
-       this.artistaForm.controls.nome.setValue(artista.nome)
-       this.artistaForm.controls.idArtista.setValue(artista.idArtista)
+  resetFrom() {
+    this.artistaForm.controls.nome.setValue('');
+    this.artistaForm.controls.idArtista.setValue(null);
   }
 
-   async onSubmit(){
-     this.serviceArtista.createUpdateArtista(this.artistaForm.value).subscribe(()=>{
+  editar(artista: Artista) {
+    this.artistaForm.controls.nome.setValue(artista.nome);
+    this.artistaForm.controls.idArtista.setValue(artista.idArtista);
+  }
+
+  async onSubmit() {
+    this.serviceArtista.createUpdate(this.artistaForm.value).subscribe(() => {
       this.closebutton.nativeElement.click();
-       window.location.reload();
-     })
+      window.location.reload();
+    });
   }
-
-
-
 }
