@@ -18,6 +18,7 @@ import { ModalConfirmacaoComponent } from './components/modal-confirmacao/modal-
 import { FormsModule } from "@angular/forms";
 import { MyFilterPipe } from './utils/filtro.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { MusicasComponent } from './src/app/components/gerador/seletor/musicas/musicas.component';
 
 
 
@@ -36,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     GeradorComponent,
     BuscadorComponent,
     ModalConfirmacaoComponent,
-    MyFilterPipe
+    MyFilterPipe,
+    MusicasComponent
    ],
   imports: [
     BrowserModule,

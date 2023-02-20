@@ -18,6 +18,7 @@
             [attr.data-target]="'#parte'+ indexOrdenador"
             aria-expanded="false"
             aria-controls="collapseOne"
+            (click)="limparMusicas(indexOrdenador)"
             >
               {{parte.nome}}
             </button>
@@ -44,30 +45,28 @@
               </select>
             </div>
 
-
             <label>Pesquisa musica</label>
             <input type="text" class="form-control" placeholder="Ex. Desperta"  name="termo"  [(ngModel)]="termo" (blur)="limpar()" >
             <select class="custom-select list-group list-group-flush" size="6">
-
                <option
                 *ngFor="let musica of musicas |  pesquisa: termo ; let i = index"
                 class="col-12 list-group-item"
-                (click)="enviarInformacao(musica.nome, indexOrdenador )"
+                (click)="enviarInformacao(musica, indexOrdenador )"
               >
                 {{ musica.nome }}
               </option>
             </select>
           </div>
-          <div *ngIf="parte.tipo === 'salmo'">
+          <div *ngIf="parte.tipo === 'salmo'" >
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Digite o salmo do dia</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="salmo" (change)="receberInformacaoDoSalmo(salmo,3)" ></textarea>
             </div>
           </div>
 
           <div *ngIf="parte.tipo === 'oracao'">
             <div class="form-group">
-               <select class="custom-select" id="inputGroupSelect01"  (change)="buscarMusicas($event.target)">
+               <select class="custom-select" id="inputGroupSelect01"  (change)="selectOracao($event.target)">
                 <option selected>Selecione a oração eucaristica</option>
                 <option *ngFor="let oracao of oracoes" value= {{oracao.idOracaoEucaristica}}> {{oracao.nomeOrcacao}} </option>n>
               </select>
@@ -104,7 +103,7 @@
         >
           <div class="card-body">
             <div class="input-group mb-3">
-              <div class="input-group mb-3">
+              <div class="input-group mb-3 " *ngIf="podeMudarFonte">
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="inputGroupSelect01"
                     >Tamanho da fonte</label
