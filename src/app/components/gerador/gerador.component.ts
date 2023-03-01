@@ -15,11 +15,9 @@ import { saveAs } from 'file-saver';
   styleUrls: ['./gerador.component.scss'],
 })
 export class GeradorComponent implements OnInit {
-  musicas: Musica[] = [];
   artistas: Artista[] = [];
   oracoes: Oracao[] = [];
   partesMissa = Constantes.PARTE_MISSA;
-  termo: string = '';
   sequenciaSlides: Musica[] = [];
   fontSize: number = 70;
   oracaoSelecionada: number = 0;
@@ -30,44 +28,20 @@ export class GeradorComponent implements OnInit {
   podeMudarFonte = false;
 
   constructor(
-    private serviceArtista: ArtistasService,
-    private serviceMusica: MusicasService,
     private oracaoService: OracaoService,
     private fileService: FileService
   ) {}
 
   ngOnInit(): void {
-    this.serviceArtista.findAll().subscribe((data) => {
-      this.artistas = data;
-    });
-
     this.oracaoService
       .buscarOracoes()
       .subscribe((oracoes) => (this.oracoes = oracoes));
-  }
-  limparMusicas(index: number) {  }
-
-  limpar() {
-    this.termo = '';
-  }
-
-  buscarMusicas(event: any) {
-    this.serviceMusica.findAll(event.value).subscribe((data) => {
-      this.musicas = data;
-    });
   }
 
   selectOracao(event: any) {
     this.oracaoSelecionada = event.value;
   }
 
-  enviarInformacao(musica: Musica, parteMissa: number) {
-    if (this.sequenciaSlides[parteMissa]) {
-      this.sequenciaSlides[parteMissa] = musica;
-    } else {
-      this.sequenciaSlides[parteMissa] = musica;
-    }
-  }
   receberInformacaoDoSalmo(salmo: string, parteMissa: number) {
     let musica: Musica = {};
     musica.letras = salmo;
@@ -78,15 +52,25 @@ export class GeradorComponent implements OnInit {
     }
   }
 
+  enviarInformacao(musica: Musica, parteMissa: number) {
+    console.log(musica);
+    if (this.sequenciaSlides[parteMissa]) {
+      this.sequenciaSlides[parteMissa] = musica;
+    } else {
+      this.sequenciaSlides[parteMissa] = musica;
+    }
+  }
   imprimir() {
+    const musicas = this.sequenciaSlides.filter(function (el) {
+      return el != null;
+    });
     const slide = {
-      musicas: this.sequenciaSlides,
+      musicas,
       fontSize: this.fontSize,
       imagem: this.imagemSeparadora,
       idOracao: this.oracaoSelecionada,
       nome: 'missa.PPT',
     };
-    console.log(JSON.stringify(slide));
 
     this.fileService.gerarDoApresentacao(slide).subscribe(() => {
       this.fileService.download(slide.nome).subscribe((blob) => {

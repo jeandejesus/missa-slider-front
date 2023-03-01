@@ -2,7 +2,10 @@
 
   <section class="container">
       <div class="row border-bottom  justify-content-center pb-3 main-artista ">
-          <img class="col-2 col-sm-2  rounded-circle logo-artista pointer" src="/assets/img/logo-artista-tb2.webp" alt="Artista">
+          <img class="col-2 col-sm-2  rounded-circle logo-artista pointer"
+          src="{{ artista.imagem || '/assets/img/perfil_defaut.jpg' }}"
+          alt="Artista">
+
           <h3 class="col-7 col-sm-8 titulo-artista align-self-center fw-bold p-0 m-0 pointer">{{artista.nome}}
           </h3>
 

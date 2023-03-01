@@ -34,11 +34,15 @@ export class ArtistasComponent implements OnInit {
   resetFrom() {
     this.artistaForm.controls.nome.setValue('');
     this.artistaForm.controls.idArtista.setValue(null);
+    this.artistaForm.controls.imagem.setValue(null);
+
   }
 
   editar(artista: Artista) {
     this.artistaForm.controls.nome.setValue(artista.nome);
     this.artistaForm.controls.idArtista.setValue(artista.idArtista);
+    this.artistaForm.controls.imagem.setValue(artista.imagem);
+
   }
 
   async onSubmit() {

@@ -2,7 +2,9 @@
 
   <section class="container border-bottom ">
     <div class="row justify-content-center align-items-center pb-3 main-artista ">
-      <img class="col-4 col-sm-2  rounded-circle logo-artista poiner" routerLink="/artistas/artista/{{artista.idArtista}}" src="/assets/img/logo-artista-tb2.webp" alt="Artista">
+      <img class="col-4 col-sm-2  rounded-circle logo-artista poiner" routerLink="/artistas/artista/{{artista.idArtista}}"
+      src="{{ artista.imagem || '/assets/img/perfil_defaut.jpg' }}"
+      alt="Artista">
       <div class="col-8 col-sm-9 align-self-center fw-bold p-0 m-0">
         <div class="row m-0">
           <span class="titulo-artista pointer "  routerLink="/artistas/artista/{{artista.idArtista}}" >{{artista.nome}}</span>

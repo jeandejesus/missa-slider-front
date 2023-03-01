@@ -3,18 +3,19 @@
     <div
       class="list-group-item list-group-item-action flex-column align-items-start"
     >
-      <div class="row row justify-content-around"   routerLink="/artistas/artista/{{artista.idArtista}}">
+      <div class="row row justify-content-around">
         <img
-
+         routerLink="/artistas/artista/{{artista.idArtista}}"
           class="col-2 col-sm-2 logo-artista rounded-circle pointer"
           src="{{ artista.imagem || '/assets/img/perfil_defaut.jpg' }}"
           alt="Artista"
         />
         <h3
-
+        routerLink="/artistas/artista/{{artista.idArtista}}"
           class=" curso-pointer col-6 col-sm-8 font-titulo-artistas align-self-center fw-bold p-0 m-0 pointer"
         >
           {{ artista.nome }}
+
         </h3>
         <div class="col-2 d-flex justify-content-around">
           <fa-icon

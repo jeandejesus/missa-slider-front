@@ -18,8 +18,7 @@
             [attr.data-target]="'#parte'+ indexOrdenador"
             aria-expanded="false"
             aria-controls="collapseOne"
-            (click)="limparMusicas(indexOrdenador)"
-            >
+             >
               {{parte.nome}}
             </button>
           </h2>
@@ -31,32 +30,11 @@
           aria-labelledby="headingOne"
           data-parent="#accordionExample"
         >
-          <div class="card-body" >
-            <div *ngIf="!parte.tipo">
-            <div class="input-group mb-3" *ngIf="!parte.tipo">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Artista</label
-                >
-              </div>
-              <select class="custom-select" id="inputGroupSelect01"  (change)="buscarMusicas($event.target)">
-                <option selected>Selecione o Artista</option>
-                <option *ngFor="let artista of artistas" value= {{artista.idArtista}}> {{artista.nome}} </option>n>
-              </select>
-            </div>
+         <div class="card-body" >
+          <div class="selector">
 
-            <label>Pesquisa musica</label>
-            <input type="text" class="form-control" placeholder="Ex. Desperta"  name="termo"  [(ngModel)]="termo" (blur)="limpar()" >
-            <select class="custom-select list-group list-group-flush" size="6">
-               <option
-                *ngFor="let musica of musicas |  pesquisa: termo ; let i = index"
-                class="col-12 list-group-item"
-                (click)="enviarInformacao(musica, indexOrdenador )"
-              >
-                {{ musica.nome }}
-              </option>
-            </select>
           </div>
+          <app-seletor [parte]="parte" (musicaSelecionada)="enviarInformacao($event,indexOrdenador)"></app-seletor>
           <div *ngIf="parte.tipo === 'salmo'" >
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Digite o salmo do dia</label>

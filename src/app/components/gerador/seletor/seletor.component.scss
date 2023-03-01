@@ -1,0 +1,11 @@
+option{
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+option:checked {
+  background-color: #c2c80080;
+  color: -internal-light-dark(rgb(255, 38, 38), rgb(255, 255, 255))
+
+}
