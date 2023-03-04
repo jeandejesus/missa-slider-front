@@ -7,57 +7,58 @@
     <div class="accordion list-group list-group-flush" id="accordionExample">
       <div
         class="list-group-item steps list-group-item-action flex-column align-items-start"
+        *ngFor="let parte of partesMissa; let indexOrdenador= index"
       >
-        <div id="headingOne">
+       <div id="headingOne">
           <h2 class="mb-0">
             <button
-              class="btn btn-dark btn-block text-left"
-              type="button"
-              data-toggle="collapse"
-              data-target="#collapseOne"
-              aria-expanded="false"
-              aria-controls="collapseOne"
-            >
-              Entrada
+            class="btn btn-dark btn-block text-left"
+            type="button"
+            data-toggle="collapse"
+            [attr.data-target]="'#parte'+ indexOrdenador"
+            aria-expanded="false"
+            aria-controls="collapseOne"
+             >
+              {{parte.nome}}
             </button>
           </h2>
         </div>
+         <div
 
-        <div
-          id="collapseOne"
+          id="parte{{indexOrdenador}}"
           class="collapse"
           aria-labelledby="headingOne"
           data-parent="#accordionExample"
         >
-          <div class="card-body">
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Artista</label
-                >
-              </div>
-              <select class="custom-select" id="inputGroupSelect01">
-                <option selected>Colo de Deus...</option>
-                <option value="1">Padre</option>
-                <option value="2">Shalom</option>
-                <option value="3">Canção</option>
-              </select>
-            </div>
-            <select class="custom-select" size="6">
-              <option
-                *ngFor="let musica of musicas; let i = index"
-                class="col-12"
-              >
-                {{ musica.nome }}
-              </option>
-            </select>
+         <div class="card-body" >
+          <div class="selector">
+
           </div>
+          <app-seletor [parte]="parte" (musicaSelecionada)="enviarInformacao($event,indexOrdenador)"></app-seletor>
+          <div *ngIf="parte.tipo === 'salmo'" >
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Digite o salmo do dia</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="salmo" (change)="receberInformacaoDoSalmo(salmo,3)" ></textarea>
+            </div>
+          </div>
+
+          <div *ngIf="parte.tipo === 'oracao'">
+            <div class="form-group">
+               <select class="custom-select" id="inputGroupSelect01"  (change)="selectOracao($event.target)">
+                <option selected>Selecione a oração eucaristica</option>
+                <option *ngFor="let oracao of oracoes" value= {{oracao.idOracaoEucaristica}}> {{oracao.nomeOrcacao}} </option>n>
+              </select>
+             </div>
+          </div>
+
+          </div>
+
         </div>
       </div>
       <div
         class="list-group-item steps list-group-item-action flex-column align-items-start"
       >
-        <div id="headingOne">
+        <div id="headingOne1">
           <h2 class="mb-0">
             <button
               class="btn btn-dark btn-block text-left"
@@ -80,20 +81,18 @@
         >
           <div class="card-body">
             <div class="input-group mb-3">
-              <div class="input-group mb-3">
+              <div class="input-group mb-3 " *ngIf="podeMudarFonte">
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="inputGroupSelect01"
                     >Tamanho da fonte</label
                   >
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
-                  <option selected>30</option>
-                  <option value="1">40</option>
-                  <option value="2">50</option>
-                  <option value="3">60</option>
+                <select class="custom-select" id="inputGroupSelect01"  [(ngModel)]="fontSize" (change)="selecionarTamanhoDaFonte($event.target)">
+                   <option *ngFor="let tamanho of tamanhosFontes" value= {{tamanho}}> {{tamanho}} </option>n>
+
                 </select>
               </div>
-              <button type="button" class="btn btn-ms-primary btn-lg btn-block">
+              <button type="button" (click)="imprimir()" class="btn btn-ms-primary btn-lg btn-block">
                 Gerar slides
               </button>
             </div>

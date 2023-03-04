@@ -1,8 +1,5 @@
 export class Artista {
-
-
-
-  idArtista ?: number
+  idArtista ?: number;
   nome ?: string = ""
   imagem ?: string = ""
 }

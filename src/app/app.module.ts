@@ -15,10 +15,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { ModalConfirmacaoComponent } from './components/modal-confirmacao/modal-confirmacao.component';
-
-
-
-
+import { FormsModule } from '@angular/forms';
+import { MyFilterPipe } from './utils/filtro.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { SeletorComponent } from './components/gerador/seletor/seletor.component';
 
 @NgModule({
   declarations: [
@@ -34,15 +34,18 @@ import { ModalConfirmacaoComponent } from './components/modal-confirmacao/modal-
     GeradorComponent,
     BuscadorComponent,
     ModalConfirmacaoComponent,
-
+    MyFilterPipe,
+    SeletorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

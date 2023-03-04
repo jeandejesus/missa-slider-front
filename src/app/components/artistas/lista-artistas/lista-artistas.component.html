@@ -1,35 +1,39 @@
-<section class="container">
+<section class="container" *ngFor="let artista of artistas">
   <div class="list-group list-group-flush row">
     <div
       class="list-group-item list-group-item-action flex-column align-items-start"
     >
       <div class="row row justify-content-around">
         <img
-          routerLink="/artistas/artista/1"
-          class="col-2 col-sm-2 logo-artista rounded-circle"
+         routerLink="/artistas/artista/{{artista.idArtista}}"
+          class="col-2 col-sm-2 logo-artista rounded-circle pointer"
           src="{{ artista.imagem || '/assets/img/perfil_defaut.jpg' }}"
           alt="Artista"
         />
         <h3
-          routerLink="/artistas/artista/1"
-          class="col-6 col-sm-8 font-titulo-artistas align-self-center fw-bold p-0 m-0"
+        routerLink="/artistas/artista/{{artista.idArtista}}"
+          class=" curso-pointer col-6 col-sm-8 font-titulo-artistas align-self-center fw-bold p-0 m-0 pointer"
         >
           {{ artista.nome }}
+
         </h3>
         <div class="col-2 d-flex justify-content-around">
           <fa-icon
             data-toggle="modal"
             data-target="#exampleModal"
             [icon]="faPencil"
+            (click)="editarArtista(artista)"
           ></fa-icon>
           <fa-icon
             [icon]="faTrash"
             data-toggle="modal"
             data-target="#confirmModal"
+            (click)="deletar(artista.idArtista)"
+
           ></fa-icon>
         </div>
       </div>
     </div>
   </div>
 </section>
-<app-modal-confirmacao></app-modal-confirmacao>
+<app-modal-confirmacao (confirmacao)="confirmarDelete()"></app-modal-confirmacao>

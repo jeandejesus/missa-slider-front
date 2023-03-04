@@ -2,13 +2,15 @@
 
   <section class="container border-bottom ">
     <div class="row justify-content-center align-items-center pb-3 main-artista ">
-      <img class="col-4 col-sm-2  rounded-circle logo-artista" src="/assets/img/logo-artista-tb2.webp" alt="Artista">
+      <img class="col-4 col-sm-2  rounded-circle logo-artista poiner" routerLink="/artistas/artista/{{artista.idArtista}}"
+      src="{{ artista.imagem || '/assets/img/perfil_defaut.jpg' }}"
+      alt="Artista">
       <div class="col-8 col-sm-9 align-self-center fw-bold p-0 m-0">
         <div class="row m-0">
-          <span class="titulo-artista" routerLink="/artistas/artista/1" >Comunidade Católica Colo de Deus</span>
+          <span class="titulo-artista pointer "  routerLink="/artistas/artista/{{artista.idArtista}}" >{{artista.nome}}</span>
         </div>
         <div class="row m-0">
-          <h5 class="ml-2">Yeshua</h5>
+          <h5 class="ml-2">{{musica.nome}}</h5>
         </div>
 
       </div>
@@ -22,26 +24,7 @@
 
 
       <div class="card-body">
-        <div class="col-12">
-          Te chamam de Deus e de Senhor <br>
-          Te chamam de Rei, de Salvador<br>
-          E eu me atrevo a Te chamar de meu amor<br>
-
-          Te chamam de Deus e de Senhor<br>
-          Te chamam de Rei, de Salvador<br>
-          E eu me atrevo a Te chamar de meu amor<br>
-
-          Yeshua, Yeshua<br>
-          Tu és tão lindo<br>
-          Que eu nem sei me expressar<br>
-          Yeshua, Tu és tão lindo<br>
-
-          Te chamam de Deus e de Senhor<br>
-          Te chamam de Rei, de Salvador<br>
-          E eu me atrevo a Te chamar de meu amor<br>
-
-
-
+        <div class="col-12" [innerHTML]="musica.letras">
         </div>
       </div>
 

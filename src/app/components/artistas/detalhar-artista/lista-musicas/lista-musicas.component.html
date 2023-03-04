@@ -4,9 +4,9 @@
       class="list-group-item list-group-item-action flex-column align-items-start"
       *ngFor="let musica of musicas; let i = index"
     >
-      <div class="row justify-content-center">
+      <div  routerLink="/artistas/artista/{{musica?.artista?.idArtista}}/musicas/{{musica?.idMusica}}" class="row justify-content-center">
         <p class="col-1">{{ i + 1 }}</p>
-        <p routerLink="/artistas/artista/:idArtista/musicas/1" class="col-9">
+        <p  class="col-9 pointer">
           {{ musica.nome }}
         </p>
         <div class="col-2 d-flex justify-content-around">
@@ -14,11 +14,13 @@
             data-toggle="modal"
             data-target="#exampleModal"
             [icon]="faPencil"
+            (click)="editar(musica)"
           ></fa-icon>
           <fa-icon
             [icon]="faTrash"
             data-toggle="modal"
             data-target="#confirmModal"
+            (click)="deleteMusica(musica.idMusica)"
           ></fa-icon>
         </div>
       </div>
@@ -26,4 +28,4 @@
   </div>
 </section>
 
-<app-modal-confirmacao></app-modal-confirmacao>
+<app-modal-confirmacao (confirmacao)="confirmarDelete()"></app-modal-confirmacao>

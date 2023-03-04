@@ -2,14 +2,17 @@
 
   <section class="container">
       <div class="row border-bottom  justify-content-center pb-3 main-artista ">
-          <img class="col-2 col-sm-2  rounded-circle logo-artista" src="/assets/img/logo-artista-tb2.webp" alt="Artista">
-          <h3 class="col-7 col-sm-8 titulo-artista align-self-center fw-bold p-0 m-0">{{artista.nome}}
+          <img class="col-2 col-sm-2  rounded-circle logo-artista pointer"
+          src="{{ artista.imagem || '/assets/img/perfil_defaut.jpg' }}"
+          alt="Artista">
+
+          <h3 class="col-7 col-sm-8 titulo-artista align-self-center fw-bold p-0 m-0 pointer">{{artista.nome}}
           </h3>
 
 
           <button type="button" class="btn btn-ms-primary" data-toggle="modal" data-target="#exampleModal">
             <fa-icon class="" [icon]="faUserPlus"></fa-icon>
-            <span class="texto-botao-artista"> Nova música </span>
+            <span class="texto-botao-artista" (click)="resetForm()"> Nova música </span>
           </button>
        </div>
   </section>
@@ -19,42 +22,60 @@
               <h5 class="font-titulo-musica  m-0"> Musicas</h5>
           </div>
 
-          <app-lista-musicas [artista]="artista" ></app-lista-musicas>
+           <app-lista-musicas [idArtista]="artista.idArtista" (musica)="editar($event)" ></app-lista-musicas>
 
       </div>
   </section>
+
+  <form class="needs-validation" #heroForm="ngForm" [formGroup]="musicaForms"
+  (ngSubmit)="onSubmit()">
+
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Nova música</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close"
+          #closebutton
+          data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-
           <div class="row form-group">
             <div class="col-12">
-              <input type="text" class="form-control" aria-label="nome da música" placeholder="Nome da música">
+              <input type="text" class="form-control"
+              formControlName="nome"
+              required
+              aria-label="nome da música" placeholder="Nome da música">
             </div>
+
             </div>
             <div class="row form-group">
             <div class="col-12">
               <div class="form-group">
                 <label for="message-text" class="col-form-label">Letra:</label>
-                <textarea class="form-control letra" id="message-text"></textarea>
+                <textarea
+                required
+                formControlName="letras"
+                class="form-control letra" id="message-text"></textarea>
               </div>
              </div>
            </div>
 
         </div>
+        <div>
+          <div *ngIf="heroForm.errors?.['identityRevealed'] && (heroForm.touched || heroForm.dirty)"
+          class="alert alert-danger">
+            prencha os campos
+         </div>
+        </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-ms-primary">Salvar</button>
+          <button type="submit" class="btn btn-ms-primary" >Salvar</button>
         </div>
       </div>
     </div>
   </div>
-
+  </form>
 </main>
