@@ -4,9 +4,9 @@
       class="list-group-item list-group-item-action flex-column align-items-start"
       *ngFor="let musica of musicas; let i = index"
     >
-      <div  routerLink="/artistas/artista/{{musica?.artista?.idArtista}}/musicas/{{musica?.idMusica}}" class="row justify-content-center">
-        <p class="col-1">{{ i + 1 }}</p>
-        <p  class="col-9 pointer">
+      <div  routerLink="/artistas/artista/{{musica?.artista?.idArtista}}/musicas/{{musica?.idMusica}}" class="row justify-content-center align-items-center">
+        <p class="col-2">{{ i + 1 }}</p>
+        <p  class="col-8 pointer">
           {{ musica.nome }}
         </p>
         <div class="col-2 d-flex justify-content-around">
@@ -14,6 +14,7 @@
             data-toggle="modal"
             data-target="#exampleModal"
             [icon]="faPencil"
+            class="align-self-center"
             (click)="editar(musica)"
           ></fa-icon>
           <fa-icon
