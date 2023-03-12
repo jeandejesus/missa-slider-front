@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { MyFilterPipe } from './utils/filtro.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { SeletorComponent } from './components/gerador/seletor/seletor.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { SeletorComponent } from './components/gerador/seletor/seletor.component
     BuscadorComponent,
     ModalConfirmacaoComponent,
     MyFilterPipe,
-    SeletorComponent,
+    SeletorComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,7 @@ import { SeletorComponent } from './components/gerador/seletor/seletor.component
     FontAwesomeModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule,
+    HttpClientModule,NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent],

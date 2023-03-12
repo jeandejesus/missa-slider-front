@@ -12,8 +12,8 @@ export class MusicasService {
 
   constructor(private http: HttpClient) {}
 
-  findAll(idArtista: any): Observable<Musica[]> {
-    const url = `${this.baseUrl}musicas/artista/${idArtista}`;
+  findAll(idArtista: any,page : number = 0, limit = 1000): Observable<Musica[]> {
+    const url = `${this.baseUrl}musicas/artista/${idArtista}?page=${page}&limit=${limit}`;
     return this.http.get<Musica[]>(url);
   }
 

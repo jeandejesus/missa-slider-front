@@ -18,7 +18,8 @@ export class ListaMusicasComponent implements OnInit {
   faCofaEllipsisVertical = faEllipsisVertical;
   faTrash = faTrash;
   faPencil = faPencil;
-
+  p: number = 0;
+  limit : number =20;
   @Input()
   idArtista: any;
 
@@ -35,7 +36,7 @@ export class ListaMusicasComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.route.params.subscribe(async (params) => {
-      this.musicas = await this.muscicaService.findAll(params.id).toPromise();
+      this.musicas = await this.muscicaService.findAll(params.id,this.p).toPromise();
     });
   }
 

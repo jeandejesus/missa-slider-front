@@ -2,7 +2,7 @@
   <div class="list-group list-group-flush row">
     <div
       class="list-group-item list-group-item-action flex-column align-items-start"
-      *ngFor="let musica of musicas; let i = index"
+      *ngFor="let musica of musicas | paginate: { itemsPerPage: 10, currentPage: p }; let i = index  "
     >
       <div  routerLink="/artistas/artista/{{musica?.artista?.idArtista}}/musicas/{{musica?.idMusica}}" class="row justify-content-center align-items-center">
         <p class="col-2">{{ i + 1 }}</p>
@@ -28,5 +28,6 @@
     </div>
   </div>
 </section>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 <app-modal-confirmacao (confirmacao)="confirmarDelete()"></app-modal-confirmacao>
